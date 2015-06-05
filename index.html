@@ -97,6 +97,7 @@
       
       function runQuery(results) {
         $('#file').submit(function(e) {
+          e.preventDefault();
           var data = results;
           if(data == '') {
             return;
@@ -123,6 +124,7 @@
       
       function JSONToCSVConvertor(JSONData, ReportTitle) {
         //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
+        console.log(JSONData, ReportTitle);
         var data = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
         var CSV = ''
         
