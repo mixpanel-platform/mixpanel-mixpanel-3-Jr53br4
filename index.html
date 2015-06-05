@@ -43,6 +43,7 @@
             
             /* Make API Request for emails */
             var promises = [];
+            var results = [];
             var params = {
                 where: '' 
             }
@@ -59,10 +60,10 @@
                 /* Format data */  
                 
                 _.each(datums, function(datum){
-                    console.log(datum.values())
+                    results.push(datum.values()['results'])
                 });
             }).then(function(){
-              
+                runQuery(results);
             });
       });
       
@@ -88,7 +89,7 @@
               "Property: <strong>" + propertyName + 
               "</strong><br># People profiles that match: <strong>" + totalProfiles + "</strong>")
             .css("color", "rgb(95,105,131)");
-            runQuery(output);
+            
           }; 
         })
       };
