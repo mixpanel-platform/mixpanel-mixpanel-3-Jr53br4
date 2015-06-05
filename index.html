@@ -50,7 +50,7 @@
             for (i = 0; i < listOfEmails.length; i++){
               
                 /* change params to include email */ 
-                params.where = '"' + listOfEmails[i] + '"' + ' in string(properties["Email"])';
+                params.where = '"' + listOfEmails[i] + '"' + ' in properties["$email"]';
                 var peopleQuery = MP.api.people(params);
                 promises.push(peopleQuery); 
           
@@ -196,5 +196,6 @@
       });
 
     </script>
+  </div>
   </body>
 </html>
